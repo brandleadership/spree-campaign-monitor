@@ -3,8 +3,8 @@
 
 class CampaignMonitorExtension < Spree::Extension
   version "1.0"
-  description "Describe your extension here"
-  url "http://yourwebsite.com/campaign_monitor"
+  description "Spree extension for campaign monitor"
+  url "http://github.com/screenconcept/spree-extension-campaign-monitor"
 
   # Please use campaign_monitor/config/routes.rb instead for extension routes.
 
