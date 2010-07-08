@@ -40,7 +40,7 @@ class CampaignMonitorHooks < Spree::ThemeSupport::HookListener
   #   end
   #
   insert_after :admin_configurations_menu do
-    "<%= configurations_menu_item(I18n.t('campaign_monitor'), admin_relation_types_url, I18n.t('manage_relation_types')) %>"
+    "<%= configurations_menu_item(I18n.t('campaign_monitor.title'), admin_campaign_monitors_url, I18n.t('campaign_monitor.description')) %>"
   end
 
 end
