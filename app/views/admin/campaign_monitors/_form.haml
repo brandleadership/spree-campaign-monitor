@@ -1,0 +1,11 @@
+- locals = {:f => f}
+- hook :admin_campaign_monitor_form_fields, locals do
+  - [:name, :api_key, :active].each do |attr|
+    - f.field_container attr do
+      = f.label attr, t("campaign_monitor.#{attr.to_s}")
+      %br
+      - if attr.eql?:active
+        = f.check_box attr
+      - else
+        = f.text_field attr
+

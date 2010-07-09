@@ -1,0 +1,15 @@
+= render :partial => 'admin/shared/configuration_menu'
+
+- hook :admin_campaign_monitor_new_form_header do
+
+  %h1
+    = t("campaign_monitor.edit_campaign")
+
+  = error_messages_for :campaign_monitor
+
+- hook :admin_campaign_monitor_show_form do
+  - form_for(@campaign_monitor, :url => object_url, :html => { :method => :put }) do |f|
+    = render :partial => "form", :locals => { :f => f }
+
+    - hook :admin_campaign_monitor_show_form_buttons do
+      = render :partial => "admin/shared/edit_resource_links"

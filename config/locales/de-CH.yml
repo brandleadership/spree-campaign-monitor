@@ -2,3 +2,8 @@ de-CH:
   campaign_monitor:
     title: Campaign Monitor
     description: Einstellen des Campaign Monitors
+    new_campaign: Neue Campaign hinzufügen
+    edit_campaign: Campaign bearbeiten
+    name: Campaign Name
+    api_key: API Key
+    active: Aktiv

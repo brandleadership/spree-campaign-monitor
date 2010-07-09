@@ -1,8 +1,9 @@
 class CreateCampaignMonitors < ActiveRecord::Migration
   def self.up
     create_table :campaign_monitors do |t|
-      t.string :client
-      t.string :api_key
+      t.string      :name
+      t.string      :api_key
+      t.boolean     :active
       t.timestamps
     end
   end
