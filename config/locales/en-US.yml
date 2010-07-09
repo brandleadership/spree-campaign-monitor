@@ -2,3 +2,17 @@ de-CH:
   campaign_monitor:
     title: Campaign Monitor
     description: Manage the Campaign Monitor
+    new_campaign: Neue Campaign hinzufügen
+    edit_campaign: Campaign bearbeiten
+    name: Campaign Name
+    api_key: API Key
+    active: Aktiv
+    client_id: KundenID
+    list_id: ListenID
+    disable: deaktivieren
+    enable: aktivieren
+  newsletter_subscriptions: Campaign Monitor
+    admin:
+      title: Received Subscriptions
+      download_as_csv: Save as CSV
+  newsletter_subscriptions: Newsletter subscriptions

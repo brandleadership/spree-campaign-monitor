@@ -7,3 +7,13 @@ de-CH:
     name: Campaign Name
     api_key: API Key
     active: Aktiv
+    client_id: KundenID
+    list_id: ListenID
+    disable: deaktivieren
+    enable: aktivieren
+  newsletter_subscriptions: Campaign Monitor
+  newsletter_subscription:
+    admin:
+      title: Eingegangene Anmeldungen
+      download_as_csv: Als CSV herunterladen
+    
