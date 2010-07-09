@@ -1,0 +1,51 @@
+%h1
+  = t('newsletter_subscription.admin.title')
+
+= link_to t('newsletter_subscription.admin.download_as_csv'), admin_download_as_csv_path
+
+%br
+%br
+
+%table
+  %thead
+    %tr
+      %th
+        = t('first_name')
+      %th
+        = t('last_name')
+      %th
+        = t('email')
+      %th
+        = t('contact_form.company')
+      %th
+        = t('address')
+      %th
+        = t('contact_form.post_code_city')
+      %th
+        = t('phone')
+      %th
+        = t('contact_form.fax')
+      %th
+        = t('active')
+        
+  %tbody
+    - @newsletter_subscriptions.each do |entry|
+      %tr
+        %td
+          = entry.first_name
+        %td
+          = entry.last_name
+        %td
+          = entry.email
+        %td
+          = entry.company
+        %td
+          = entry.address
+        %td
+          = entry.post_code + " " + entry.city
+        %td
+          = entry.phone
+        %td
+          = entry.fax
+        %td
+          = entry.active

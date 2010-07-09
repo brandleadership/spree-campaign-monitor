@@ -43,4 +43,7 @@ class CampaignMonitorHooks < Spree::ThemeSupport::HookListener
     "<%= configurations_menu_item(I18n.t('campaign_monitor.title'), admin_campaign_monitors_url, I18n.t('campaign_monitor.description')) %>"
   end
 
+  insert_after :admin_tabs do
+    %(<%=  tab(:newsletter_subscriptions)  %>)
+  end
 end
