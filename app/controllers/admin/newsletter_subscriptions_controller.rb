@@ -7,6 +7,17 @@ class Admin::NewsletterSubscriptionsController < Admin::BaseController
     @newsletter_subscriptions = NewsletterSubscription.find(:all)
   end
 
+  def toggle_active
+    @newsletter_subscription = NewsletterSubscription.find(params[:id])
+    if @newsletter_subscription.active
+      @newsletter_subscription.active = false
+    else
+      @newsletter_subscription.active = true
+    end
+    @newsletter_subscription.save
+    render :nothing  => true
+  end
+
   def download_as_csv
     @newsletter_subscriptions = NewsletterSubscription.find(:all)
     @outfile = "newsletter_subscriptions_" + Time.now.strftime("%Y-%m-%d") + ".csv"

@@ -27,10 +27,12 @@
         = t('contact_form.fax')
       %th
         = t('active')
+      %th
+        
         
   %tbody
     - @newsletter_subscriptions.each do |entry|
-      %tr
+      %tr{:id => "newsletter_subscriptions_entry_#{entry.id}"}
         %td
           = entry.first_name
         %td
@@ -47,5 +49,10 @@
           = entry.phone
         %td
           = entry.fax
-        %td
+        %td.active
           = entry.active
+        %td.toggle
+          .add{:style => entry.active ? "" : "display:none;"}
+            = toggle_link entry, :add
+          .delete{:style => entry.active ? "display:none;" : ""}
+            = toggle_link entry, :delete
