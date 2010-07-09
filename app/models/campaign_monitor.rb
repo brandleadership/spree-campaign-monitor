@@ -5,6 +5,12 @@ class CampaignMonitor < ActiveRecord::Base
   validates_uniqueness_of :active, :if => :active
   validates_presence_of :api_key, :name
 
+  named_scope :active, :conditions => {:active => true}
+
+  def self.form_fields
+    [:name, :api_key, :client_id, :list_id, :active]
+  end
+
   private
 
   #
@@ -12,8 +18,10 @@ class CampaignMonitor < ActiveRecord::Base
   #
   def active_to_inactive
     campaign = CampaignMonitor.find_by_active(true)
-    campaign.active = false
-    campaign.save
+    if self != campaign and campaign != nil
+      campaign.active = false
+      campaign.save
+    end
   end
 
 end
