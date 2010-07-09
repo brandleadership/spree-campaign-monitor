@@ -1,12 +1,5 @@
 = render :partial => 'admin/shared/configuration_menu'
 
-.toolbar
-  %ul.actions
-    %li
-      = button_link_to t("campaign_monitor.new_campaign"), new_object_url, :icon => 'add'
-
-  %br.clear
-
 %h1
   = t('campaign_monitor.title')
 
@@ -16,20 +9,25 @@
       - hook :admin_campaign_monitors_index_headers do
         %th= t("campaign_monitor.name")
         %th= t("campaign_monitor.api_key")
-        %th= t("campaign_monitor.active")
       %th
         - hook :admin_campaign_monitor_index_header_actions
   %tbody
-    - @campaign_monitors.each do |campaign_monitor|
-      %tr{:id => "#{dom_id campaign_monitor}"}
-        - locals = {:campaign_monitor => campaign_monitor}
-        - hook :admin_campaign_monitors_index_rows, locals do
-          %td= campaign_monitor.name
-          %td= campaign_monitor.api_key
-          %td= campaign_monitor.active
-        %td{:width => "140px"}
-          - hook :admin_campaign_monitors_index_row_actions, locals do
+    - campaign_monitor = CampaignMonitor.find(:first) || CampaignMonitor.new
+    %tr{:id => "#{dom_id campaign_monitor}"}
+      - locals = {:campaign_monitor => campaign_monitor}
+      - hook :admin_campaign_monitors_index_rows, locals do
+        %td
+          = campaign_monitor.name
+        %td
+          = campaign_monitor.api_key
+
+      %td{:width => "140px"}
+        - hook :admin_campaign_monitors_index_row_actions, locals do
+          - if campaign_monitor.id
             = link_to_edit campaign_monitor
+          - else
+            = link_to t('add'), new_object_url
+          - if campaign_monitor.id
             %br
             = link_to_delete campaign_monitor
 
