@@ -1,6 +1,7 @@
 class Admin::CampaignMonitorsController < Admin::BaseController
   resource_controller
 
- update.wants.html { redirect_to collection_url }
- create.wants.html { redirect_to collection_url }
+  update.wants.html { redirect_to collection_url }
+  create.wants.html { redirect_to collection_url }
+
 end
