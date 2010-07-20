@@ -12,7 +12,7 @@ de-CH:
     disable: deaktivieren
     enable: aktivieren
   newsletter_subscriptions: Campaign Monitor
+  newsletter_subscription:
     admin:
       title: Received Subscriptions
       download_as_csv: Save as CSV
-  newsletter_subscriptions: Newsletter subscriptions

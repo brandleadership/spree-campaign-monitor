@@ -16,4 +16,8 @@ de-CH:
     admin:
       title: Eingegangene Anmeldungen
       download_as_csv: Als CSV herunterladen
+      side_bar_menu: Campaign Monitor Menu
+      subscriptions: Anmeldungen
+      lists: Campaign Listen
+      campaign: Campaignen starten
     
