@@ -1,8 +1,8 @@
 require 'campaigning'
 
 class NewsletterSubscriptionObserver < ActiveRecord::Observer
-  observe :newsletter_subscription
 
+  observe :newsletter_subscription
 
 
   def after_create(newsletter_subscription)
