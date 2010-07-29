@@ -1,5 +1,7 @@
 class NewsletterSubscription < ActiveRecord::Base
 
+  belongs_to :campaign_list
+
   named_scope :active, :conditions => {:active => true}
 
   validates_presence_of :first_name, :last_name, :email, :want_to_subscribe

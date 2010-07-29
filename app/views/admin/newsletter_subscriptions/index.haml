@@ -28,13 +28,15 @@
       %th
         = t('contact_form.fax')
       %th
+        = t('campaign_monitor.campaign_list')
+      %th
         = t('active')
       %th
         
         
   %tbody
     - @newsletter_subscriptions.each do |entry|
-      %tr{:id => "newsletter_subscriptions_entry_#{entry.id}"}
+      %tr{:id => "newsletter_subscriptions_entry_#{entry.id}", :class => "campaign_monitor_list_#{entry.campaign_list.name}"}
         %td
           = entry.first_name
         %td
@@ -42,15 +44,22 @@
         %td
           = entry.email
         %td
-          = entry.company
+          - unless entry.imported
+            = entry.company
         %td
-          = entry.address
+          - unless entry.imported
+            = entry.address
         %td
-          = entry.post_code + " " + entry.city
+          - unless entry.imported
+            = entry.post_code + " " + entry.city
         %td
-          = entry.phone
+          - unless entry.imported
+            = entry.phone
         %td
-          = entry.fax
+          - unless entry.imported
+            = entry.fax
+        %td
+          = entry.campaign_list.name
         %td.active
           = entry.active
         %td.toggle

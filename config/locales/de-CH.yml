@@ -11,6 +11,8 @@ de-CH:
     list_key: ListenID
     disable: deaktivieren
     enable: aktivieren
+    campaign_list: Campaign List
+    update_hint: Beim Speichern werden die erstellten Campaign Listen & Subscriber runtergezogen und gespeichert.
   newsletter_subscriptions: Campaign Monitor
   newsletter_subscription:
     admin:

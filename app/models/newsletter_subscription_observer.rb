@@ -6,16 +6,18 @@ class NewsletterSubscriptionObserver < ActiveRecord::Observer
 
 
   def after_create(newsletter_subscription)
-    answer = campaign_subscriber(newsletter_subscription).add!(CampaignMonitor.active.first.list_id)
-    unless answer.code.eql?0
-      newsletter_subscription.active = false
-      newsletter_subscription.save
+    unless newsletter_subscription.imported
+      answer = campaign_subscriber(newsletter_subscription).add!(CampaignMonitor.find(:first).list_key)
+      unless answer.code.eql?0
+        newsletter_subscription.active = false
+        newsletter_subscription.save
+      end
     end
   end
 
   def after_update(newsletter_subscription)
     subscription = campaign_subscriber(newsletter_subscription)
-    list = CampaignMonitor.active.first.list_id
+    list = CampaignMonitor.find(:first).list_key
     unless newsletter_subscription.active
       if subscription.is_subscribed?(list)
         subscription.unsubscribe!(list)
@@ -36,6 +38,6 @@ class NewsletterSubscriptionObserver < ActiveRecord::Observer
                                              Time.now,
                                              true,
                                              nil,
-                                             {:apiKey => CampaignMonitor.active.first.api_key})
+                                             {:apiKey => CampaignMonitor.find(:first).api_key})
   end
 end

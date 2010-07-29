@@ -11,4 +11,7 @@
         hallo
       - else
         = f.text_field attr
-
+        
+- hook :admin_campaign_monitor_show_form_buttons do
+  %p
+    = t('campaign_monitor.update_hint')
