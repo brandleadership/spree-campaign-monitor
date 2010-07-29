@@ -1,8 +1,8 @@
 class CampaignMonitor < ActiveRecord::Base
 
-  validates_presence_of :api_key, :name
-
   has_many :campaign_lists, :dependent => :delete_all
+
+  validates_presence_of :api_key, :name, :client_key
 
   #
   # Returns the form fields in the correct order
