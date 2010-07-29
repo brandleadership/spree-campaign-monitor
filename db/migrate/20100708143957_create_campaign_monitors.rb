@@ -3,7 +3,7 @@ class CreateCampaignMonitors < ActiveRecord::Migration
     create_table :campaign_monitors do |t|
       t.string      :name
       t.string      :api_key
-      t.string      :client_id
+      t.string      :client_key
       t.timestamps
     end
   end
