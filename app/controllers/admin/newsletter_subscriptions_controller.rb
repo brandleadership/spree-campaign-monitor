@@ -4,7 +4,10 @@ class Admin::NewsletterSubscriptionsController < Admin::BaseController
   resource_controller
 
   def index
-    @newsletter_subscriptions = NewsletterSubscription.find(:all)
+    NewsletterSubscription.find(:all).each do |subscription|
+      subscription.update
+    end
+    @newsletter_subscriptions = NewsletterSubscription.active
   end
 
   def toggle_active
@@ -19,7 +22,7 @@ class Admin::NewsletterSubscriptionsController < Admin::BaseController
   end
 
   def download_as_csv
-    @newsletter_subscriptions = NewsletterSubscription.find(:all)
+    @newsletter_subscriptions = NewsletterSubscription.active
     @outfile = "newsletter_subscriptions_" + Time.now.strftime("%Y-%m-%d") + ".csv"
     csv_data = FasterCSV.generate do |csv|
       csv << ["First name", "Last name", "Email", "Company", "Address", "Post code", "City", "Phone", "Fax"]
