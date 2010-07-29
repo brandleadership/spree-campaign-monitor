@@ -11,7 +11,7 @@ class CampaignList < ActiveRecord::Base
       list.get_all_active_subscribers.each do |subscriber|
         unless NewsletterSubscription.find(:first, :conditions => { :email => subscriber.emailAddress })
           name = subscriber.name.split(' ')
-          self.newsletter_subscriptions.create(:first_name => name.first, :last_name => name.last, :email => subscriber.emailAddress, :want_to_subscribe => true, :imported => true)
+          self.newsletter_subscriptions.create(:first_name => name.first, :last_name => name.last, :email => subscriber.emailAddress, :want_to_subscribe => true, :imported => true, :active => true)
         end
       end
     end
