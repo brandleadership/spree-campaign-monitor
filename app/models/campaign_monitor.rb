@@ -15,11 +15,27 @@ class CampaignMonitor < ActiveRecord::Base
   #
   # Gets the lists from defined api and client key 
   #
-  def update_lists
+  def update_components
     client = Campaigning::Client.new(self.client_key, self.name, {:apiKey => self.api_key})
+    update_lists(client)
+    update_campaigns(client)
+  end
+
+  private
+
+  #
+  # Creates a list when list key is not present
+  #
+  def update_lists(client)
     client.lists.each do |list|
       self.campaign_lists.create(:name => list.name, :list_key => list.listID) unless CampaignList.find(:first, :conditions => {:list_key => list.listID})
     end
+  end
+
+  #
+  # Creates a campaign when campaign key is not present
+  #
+  def update_campaigns(client)
     client.campaigns.each do |campaign|
       self.campaigns.create(:campaign_key => campaign.campaignID,
                            :subject => campaign.subject,
@@ -28,5 +44,5 @@ class CampaignMonitor < ActiveRecord::Base
                            :total_recipients => campaign.totalRecipients) unless Campaign.find(:first, :conditions => { :campaign_key => campaign.campaignID })
     end
   end
-
+  
 end
