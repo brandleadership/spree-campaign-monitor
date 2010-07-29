@@ -42,11 +42,14 @@
         %th
           = t('campaign_list.name')
         %th
-          = t('campaign_list.key')
+          = t('campaign_list.id')
     %tbody
       - campaign_monitor.campaign_lists.each do |list|
         %tr
           %td
             = list.name
           %td
-            = list.list_key
+            = list.id
+
+  %p
+    = t('campaign_list.hint')            
