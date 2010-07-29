@@ -7,8 +7,8 @@ de-CH:
     name: Campaign Name
     api_key: API Key
     active: Aktiv
-    client_id: KundenID
-    list_id: ListenID
+    client_key: KundenID
+    list_key: ListenID
     disable: deaktivieren
     enable: aktivieren
   newsletter_subscriptions: Campaign Monitor
