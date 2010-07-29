@@ -5,7 +5,7 @@ class Admin::NewsletterSubscriptionsController < Admin::BaseController
 
   def index
     NewsletterSubscription.find(:all).each do |subscription|
-      subscription.update
+      subscription.update_state
     end
     @newsletter_subscriptions = NewsletterSubscription.active
   end
