@@ -15,7 +15,7 @@ class NewsletterSubscriptionObserver < ActiveRecord::Observer
       end
     end
   rescue
-    logger.error "Newsletter subscription from #{newsletter_subscription.email} caused an error on create in campaign monitor"
+
   end
 
   def after_update(newsletter_subscription)
@@ -29,7 +29,7 @@ class NewsletterSubscriptionObserver < ActiveRecord::Observer
       subscription.add_and_resubscribe!(list)
     end
   rescue
-    logger.error "Newsletter subscription from #{newsletter_subscription.email} caused an error on update in campaign monitor"
+    
   end
 
   private
