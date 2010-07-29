@@ -15,7 +15,7 @@ class Admin::CampaignMonitorsController < Admin::BaseController
   private
 
   def initialize_campaign_monitor
-    @campaign_monitor.update_lists
+    @campaign_monitor.update_components
     @campaign_monitor.campaign_lists.each do |list|
       list.update_subscribers
     end
