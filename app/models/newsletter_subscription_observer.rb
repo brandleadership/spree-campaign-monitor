@@ -7,7 +7,7 @@ class NewsletterSubscriptionObserver < ActiveRecord::Observer
 
   def after_create(newsletter_subscription)
     unless newsletter_subscription.imported
-      answer = campaign_subscriber(newsletter_subscription).add!(CampaignMonitor.find(:first).list_key)
+      answer = campaign_subscriber(newsletter_subscription).add!(newsletter_subscription.campaign_list.list_key)
       unless answer.code.eql?0
         newsletter_subscription.active = false
         newsletter_subscription.save
