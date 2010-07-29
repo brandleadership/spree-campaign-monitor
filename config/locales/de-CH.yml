@@ -13,6 +13,10 @@ de-CH:
     enable: aktivieren
     campaign_list: Campaign List
     update_hint: Beim Speichern werden die erstellten Campaign Listen & Subscriber runtergezogen und gespeichert.
+    available_campaign_lists: Verfügbare Campaign Listen
+  campaign_list:
+    name: Name
+    key: List Key
   newsletter_subscriptions: Campaign Monitor
   newsletter_subscription:
     admin:

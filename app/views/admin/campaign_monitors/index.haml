@@ -32,4 +32,21 @@
             = link_to_delete campaign_monitor
 
 
-  
+- if defined_campaign_monitor
+  %h1
+    = t('campaign_monitor.available_campaign_lists')
+
+  %table.index
+    %thead
+      %tr
+        %th
+          = t('campaign_list.name')
+        %th
+          = t('campaign_list.key')
+    %tbody
+      - campaign_monitor.campaign_lists.each do |list|
+        %tr
+          %td
+            = list.name
+          %td
+            = list.list_key
