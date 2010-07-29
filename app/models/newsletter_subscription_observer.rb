@@ -7,12 +7,15 @@ class NewsletterSubscriptionObserver < ActiveRecord::Observer
 
   def after_create(newsletter_subscription)
     unless newsletter_subscription.imported
-      answer = campaign_subscriber(newsletter_subscription).add!(newsletter_subscription.campaign_list.list_key)
+      subscriber = campaign_subscriber(newsletter_subscription)
+      answer = subscriber.add_and_resubscribe!(newsletter_subscription.campaign_list.list_key)
       unless answer.code.eql?0
         newsletter_subscription.active = false
         newsletter_subscription.save
       end
     end
+  rescue
+    logger.error "Newsletter subscription from #{newsletter_subscription.email} caused an error on create in campaign monitor"
   end
 
   def after_update(newsletter_subscription)
@@ -25,6 +28,8 @@ class NewsletterSubscriptionObserver < ActiveRecord::Observer
     else
       subscription.add_and_resubscribe!(list)
     end
+  rescue
+    logger.error "Newsletter subscription from #{newsletter_subscription.email} caused an error on update in campaign monitor"
   end
 
   private
@@ -38,6 +43,6 @@ class NewsletterSubscriptionObserver < ActiveRecord::Observer
                                              Time.now,
                                              true,
                                              nil,
-                                             {:apiKey => CampaignMonitor.find(:first).api_key})
+                                             { :apiKey => newsletter_subscription.campaign_list.campaign_monitor.api_key })
   end
 end
