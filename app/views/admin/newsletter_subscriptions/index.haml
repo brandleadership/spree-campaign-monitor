@@ -32,7 +32,7 @@
       %th
         = t('active')
       %th
-        
+
         
   %tbody
     - @newsletter_subscriptions.each do |entry|
@@ -64,6 +64,6 @@
           = entry.active
         %td.toggle
           .add{:style => entry.active ? "" : "display:none;"}
-            = toggle_link entry, :add
+            /= toggle_link entry, :add
           .delete{:style => entry.active ? "display:none;" : ""}
-            = toggle_link entry, :delete
+            /= toggle_link entry, :delete
