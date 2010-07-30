@@ -16,6 +16,12 @@ de-CH:
     available_campaign_lists: VerfŸgbare Campaign Listen
   campaigns:
     title: Campaignen
+    name: Name
+    subject: E-Mail Subject
+    total_recipients: Anzahl EmpfŠnger
+    sent_date: Versanddatum
+    send_campaign: Campaign starten
+    sending_campaign: Campaign {{name}} starten
   campaign_list:
     name: Name
     key: List Key

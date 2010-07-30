@@ -2,3 +2,34 @@
 
 %h1
   = t('campaigns.title')
+
+%table.index
+  %thead
+    %tr
+      - hook :admin_campaigns_index_headers do
+        %th
+          = t('campaigns.name')
+        %th
+          = t('campaigns.subject')
+        %th
+          = t('campaigns.total_recipients')
+        %th
+          = t('campaigns.sent_date')
+        %th
+          = t('campaigns.send_campaign')
+  %tbody
+    - @campaigns.each do |campaign|
+      %tr{:id => "#{dom_id campaign}"}
+        - locals = {:campaign_monitor => campaign}
+        - hook :admin_campaigns_index_rows, locals do
+          %td
+            = campaign.name
+          %td
+            = campaign.subject
+          %td
+            = campaign.total_recipients
+          %td
+            = campaign.sent_date
+          %td
+            = t('campaigns.sending_campaign', :name => campaign.name )
+              
