@@ -7,16 +7,20 @@ de-CH:
     name: Campaign Name
     api_key: API Key
     active: Aktiv
-    client_key: KundenID
+    client_key: API Kunden ID
     list_key: ListenID
     disable: deaktivieren
     enable: aktivieren
     campaign_list: Campaign List
     update_hint: Beim Speichern werden die erstellten Campaign Listen & Subscriber runtergezogen und gespeichert.
     available_campaign_lists: VerfŸgbare Campaign Listen
+  campaigns:
+    title: Campaignen
   campaign_list:
     name: Name
     key: List Key
+    id: ListID
+    hint: Die ListID muss im Formular statisch eingetragen werden als f.hidden_field :campaign_list_id, :value => ListID
   newsletter_subscriptions: Campaign Monitor
   newsletter_subscription:
     admin:
