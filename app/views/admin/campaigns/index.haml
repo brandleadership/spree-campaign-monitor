@@ -31,5 +31,5 @@
           %td
             = campaign.sent_date
           %td
-            = t('campaigns.sending_campaign', :name => campaign.name )
+            = link_to_remote t('campaigns.sending_campaign', :name => campaign.name ), :url => { :action => 'invoke', :id => campaign.id }, :complete => 'alert("done");'
               
