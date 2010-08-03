@@ -10,10 +10,13 @@ module Admin::CampaignMonitorsHelper
   private
 
   def initialize_campaign_monitor
+    @campaign_monitor ||= CampaignMonitor.find(params[:id])
     @campaign_monitor.update_components
     @campaign_monitor.campaign_lists.each do |list|
       list.update_subscribers
     end
+
+    redirect :back
   end
 
 end

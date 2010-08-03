@@ -36,9 +36,7 @@ class Admin::NewsletterSubscriptionsController < Admin::BaseController
   end
 
   def update_campaign_monitor
-    @campaign_monitor = CampaignMonitor.find(params[:id])
     initialize_campaign_monitor
-    render :nothing  => true
   end
 
 end

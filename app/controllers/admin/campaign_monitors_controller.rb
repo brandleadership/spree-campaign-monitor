@@ -14,4 +14,8 @@ class Admin::CampaignMonitorsController < Admin::BaseController
     initialize_campaign_monitor
   end
 
+  def update_campaign_monitor
+    initialize_campaign_monitor
+  end
+
 end

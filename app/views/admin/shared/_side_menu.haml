@@ -7,4 +7,6 @@
         = link_to t('newsletter_subscription.admin.subscriptions'), admin_newsletter_subscriptions_path
       %li{:class => controller.controller_name == 'campaigns' ? 'active' : ''}
         = link_to t('newsletter_subscription.admin.campaign'), admin_campaigns_path
+      %li
+        = link_to t('campaign_monitor.update_everything'), :url => { :action => 'update_campaign_monitor', :id => CampaignMonitor.find(:first).id }
 
