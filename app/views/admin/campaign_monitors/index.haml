@@ -52,4 +52,6 @@
             = list.id
 
   %p
-    = t('campaign_list.hint')            
+    = t('campaign_list.hint')
+  %p
+    = link_to t('campaign_monitor.update_everything'), :url => { :action => 'update_campaign_monitor', :id => CampaignMonitor.find(:first).id }
