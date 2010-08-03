@@ -3,6 +3,8 @@ require 'fastercsv'
 class Admin::NewsletterSubscriptionsController < Admin::BaseController
   resource_controller
 
+  include Admin::CampaignMonitorsHelper
+
   def index
     NewsletterSubscription.find(:all).each do |subscription|
       subscription.update_state
@@ -31,6 +33,12 @@ class Admin::NewsletterSubscriptionsController < Admin::BaseController
       end
     end
     send_data csv_data, :type => 'text/csv; charset=iso-8859-1; header=present', :disposition => "attachment; filename=#{@outfile}"   
+  end
+
+  def update_campaign_monitor
+    @campaign_monitor = CampaignMonitor.find(params[:id])
+    initialize_campaign_monitor
+    render :nothing  => true
   end
 
 end
