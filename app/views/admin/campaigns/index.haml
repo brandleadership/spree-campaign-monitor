@@ -1,22 +1,22 @@
 = render 'admin/shared/side_menu'
 
 %h1
-  = t('campaigns.title')
+  = t('campaigns')
 
 %table.index
   %thead
     %tr
       - hook :admin_campaigns_index_headers do
         %th
-          = t('campaigns.name')
+          = t('campaign.name')
         %th
-          = t('campaigns.subject')
+          = t('campaign.subject')
         %th
-          = t('campaigns.total_recipients')
+          = t('campaign.total_recipients')
         %th
-          = t('campaigns.sent_date')
+          = t('campaign.sent_date')
         %th
-          = t('campaigns.send_campaign')
+          = t('campaign.send_campaign')
   %tbody
     - @campaigns.each do |campaign|
       %tr{:id => "#{dom_id campaign}"}
@@ -31,5 +31,5 @@
           %td
             = campaign.sent_date
           %td
-            = link_to_remote t('campaigns.sending_campaign', :name => campaign.name ), :url => { :action => 'invoke', :id => campaign.id }, :complete => 'alert("done");'
+            = link_to_remote t('campaign.sending_campaign', :name => campaign.name ), :url => { :action => 'invoke', :id => campaign.id }, :complete => 'alert("done");'
               

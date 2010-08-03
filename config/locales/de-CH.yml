@@ -14,8 +14,8 @@ de-CH:
     campaign_list: Campaign List
     update_hint: Beim Speichern werden die erstellten Campaign Listen & Subscriber runtergezogen und gespeichert.
     available_campaign_lists: Verfügbare Campaign Listen
-  campaigns:
-    title: Campaignen
+  campaigns: Campaignen
+  campaign:
     name: Name
     subject: E-Mail Subject
     total_recipients: Anzahl Empfänger
