@@ -35,7 +35,8 @@
 
         
   %tbody
-    - @newsletter_subscriptions.each do |entry|
+    - if subscriptions = @newsletter_subscriptions
+      - subscriptions.each do |entry|
       %tr{:id => "newsletter_subscriptions_entry_#{entry.id}", :class => "campaign_monitor_list_#{entry.campaign_list.name}"}
         %td
           = entry.first_name
