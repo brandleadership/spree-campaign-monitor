@@ -10,6 +10,8 @@ Adds a newsletter subscription which is connected with Campaign Monitor.
 
 * fastercsv
 * campaigning
+ * soap4r
+ * jeweler
 * haml
 
 ### API
